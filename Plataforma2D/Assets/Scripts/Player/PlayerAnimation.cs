@@ -29,4 +29,8 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetBool("Crouch", state);
 
     }
+
+    public void SetMeleeAttack(){
+        anim.SetTrigger("Attack");
+    }
 }
