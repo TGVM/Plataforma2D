@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 125022685}
   - component: {fileID: 125022686}
   - component: {fileID: 125022687}
+  - component: {fileID: 125022688}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -421,6 +422,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skills: 
+--- !u!114 &125022688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125022677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141a775e7dd626d49923efe5095cb2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  invincibleTime: 1
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 125022688}
+        m_TargetAssemblyTypeName: Damageable, Assembly-CSharp
+        m_MethodName: StartDamageSprite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ReleaseDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  damageColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &177470414
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +508,7 @@ GameObject:
   - component: {fileID: 303907504}
   - component: {fileID: 303907506}
   - component: {fileID: 303907505}
+  - component: {fileID: 303907507}
   m_Layer: 8
   m_Name: Attack
   m_TagString: Untagged
@@ -549,7 +587,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -565,6 +603,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &303907507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303907503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd61d312d046cf843b88891ff5dca290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 1
 --- !u!1 &312961772
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +871,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.279575, y: 1.9256402, z: -10}
+  m_LocalPosition: {x: 10.281026, y: 1.9256402, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6155,10 +6206,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chomper (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7173318946626839358, guid: 2a698f143adff814bada5a05c9ac1b66, type: 3}
-      propertyPath: flipByTime
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6439,7 +6486,7 @@ Transform:
   m_GameObject: {fileID: 1350516617}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.279575, y: 1.9256402, z: -10}
+  m_LocalPosition: {x: 10.281026, y: 1.9256402, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
