@@ -33,4 +33,12 @@ public class PlayerAnimation : MonoBehaviour
     public void SetMeleeAttack(){
         anim.SetTrigger("Attack");
     }
+
+    public void SetDamage(){
+        anim.SetTrigger("Damage");
+    }
+
+    public void SetDeath(){
+        anim.SetTrigger("Death");
+    }
 }

@@ -22,6 +22,11 @@ public class Damageable : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color startColor;
 
+    public float noControlTime = 0.1f;
+
+    public Vector2 impactForce;
+    private float x;
+
 
     void Awake()
     {
@@ -41,17 +46,48 @@ public class Damageable : MonoBehaviour
         
     }
 
-    public void TakeDamage(int damageAmount){
+    public void TakeDamage(int damageAmount, float xPos = 0){
         if(invincible || isDead)
             return;
+
+        x = xPos;
 
         OnDamage.Invoke();
         invincible = true;
         Invoke("SetInvincible", invincibleTime);
+        Invoke("GainControl", noControlTime);
         currentHealth -= damageAmount;
+
+        if(gameObject.CompareTag("Player")){
+            UIManager.instance.SetLives(currentHealth);
+        }
+
         if(currentHealth<=0){
             isDead = true;
             OnDeath.Invoke();
+        }
+    }
+
+    void GainControl(){
+        //if(isDead) return;
+
+        ReleaseDamage.Invoke();
+    }
+
+    public void DamageImpact(){
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if(rb != null){
+            float dir = 0;
+            if(x < transform.position.x){
+                dir = 1;
+            }else{
+                dir = -1;
+            }
+
+            rb.velocity = Vector2.zero;
+            rb.AddForce(new Vector2(impactForce.x * dir, impactForce.y), ForceMode2D.Impulse);
+
+
         }
     }
 

@@ -241,6 +241,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   damageColor: {r: 1, g: 0, b: 0, a: 0}
+  noControlTime: 0.1
+  impactForce: {x: 0, y: 0}
 --- !u!114 &2026916318272536545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +256,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
+  powerValue: 150
+  duration: 1
 --- !u!1 &8931860890900859290
 GameObject:
   m_ObjectHideFlags: 0
