@@ -69,7 +69,7 @@ public class Damageable : MonoBehaviour
     }
 
     void GainControl(){
-        //if(isDead) return;
+        if(isDead) return;
 
         ReleaseDamage.Invoke();
     }
@@ -111,6 +111,12 @@ public class Damageable : MonoBehaviour
             timer+=0.1f;
         }
         spriteRenderer.color = startColor;
+    }
+
+    public void Respawn(){
+        isDead = false;
+        currentHealth = 5;
+        UIManager.instance.SetLives(currentHealth);
     }
 
 }
