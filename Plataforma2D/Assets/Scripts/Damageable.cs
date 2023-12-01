@@ -119,4 +119,13 @@ public class Damageable : MonoBehaviour
         UIManager.instance.SetLives(currentHealth);
     }
 
+    public void SetHealth(int amount){
+        currentHealth += amount;
+        if(currentHealth >= maxHealth){
+            currentHealth = maxHealth;
+        }
+
+        UIManager.instance.SetLives(currentHealth);
+    }
+
 }
