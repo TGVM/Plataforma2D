@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour{
 
     [SerializeField]
     private float walkSpeed;
+    public float pushSpeed;
     public float maxSpeed = 10;
+    private bool pushing = false;
 
     private Rigidbody2D rb;
     private Vector2 newMovement;
@@ -89,7 +91,14 @@ public class PlayerController : MonoBehaviour{
 
     //function to update movement vector
     public void Move(float direction){
-        float currentSpeed = walkSpeed;
+        float currentSpeed;
+        if(pushing){
+            currentSpeed = pushSpeed;
+        }else{
+            currentSpeed = walkSpeed;
+        }
+
+        
         newMovement = new Vector2(direction * currentSpeed, rb.velocity.y);
 
         playerAnimation.SetSpeed((int)Mathf.Abs(direction));
@@ -100,6 +109,10 @@ public class PlayerController : MonoBehaviour{
             Flip();
         }
 
+    }
+
+    public void SetPushing(bool state){
+        pushing = state;
     }
 
     //aux function to flip player sprite

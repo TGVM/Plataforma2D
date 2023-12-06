@@ -45,4 +45,8 @@ public class PlayerAnimation : MonoBehaviour
     public void SetGun(){
         anim.SetBool("Gun", true);
     }
+
+    public void SetPush(bool state){
+        anim.SetBool("Push", state);
+    }
 }

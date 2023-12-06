@@ -128,4 +128,8 @@ public class Damageable : MonoBehaviour
         UIManager.instance.SetLives(currentHealth);
     }
 
+    public void DestroyObject(float time){
+        DestroyObject(gameObject, time);
+    }
+
 }
