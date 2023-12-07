@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 
 
     public GameObject[] lives;
+    public GameObject[] keys;
 
     public Text dialogText;
     public Animator dialogPanel;
@@ -57,6 +58,16 @@ public class UIManager : MonoBehaviour
 
         for(int i = 0; i<amount; i++){
             lives[i].SetActive(true);
+        }
+    }
+
+    public void SetKeys(int amount){
+        for(int i = 0; i < keys.Length; i++){
+            keys[i].SetActive(false);
+        }
+
+        for(int i = 0; i<amount; i++){
+            keys[i].SetActive(true);
         }
     }
 
