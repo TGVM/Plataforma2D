@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour{
     public float groundRadius = 0.1f;
     public LayerMask groundLayer;
 
+    public AudioClip jumpSfx;
+    public AudioClip[] footstepsSfx;
+
 
     [SerializeField]
     private float walkSpeed;
@@ -33,10 +36,13 @@ public class PlayerController : MonoBehaviour{
 
     private PassthroughPlatform platform;
 
+    private AudioManager audioManager;
+
     // Awake is called when object is instantiated
     private void Awake(){
         rb = GetComponent<Rigidbody2D>();
         playerAnimation = GetComponent<PlayerAnimation>();
+        audioManager = GetComponent<AudioManager>();
     }
 
     // Start is called before the first frame update
@@ -85,6 +91,7 @@ public class PlayerController : MonoBehaviour{
 
     public void Jump(){
         if(grounded || (!doubleJump && PlayerSkills.instance.skills.Contains(Skills.DoubleJump))){
+            audioManager.PlayAudio(jumpSfx);
             jump = true;
         }
     }
@@ -158,6 +165,10 @@ public class PlayerController : MonoBehaviour{
 
     public bool IsOnIce(){
         return onIce;
+    }
+
+    public void Footsteps(){
+        audioManager.PlayAudio(footstepsSfx[UnityEngine.Random.Range(0, footstepsSfx.Length)]);
     }
 
 }
