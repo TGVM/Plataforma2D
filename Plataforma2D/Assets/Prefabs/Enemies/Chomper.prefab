@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7173318946626839358}
   - component: {fileID: 1153558639300189812}
   - component: {fileID: 2026916318272536545}
+  - component: {fileID: 4122995540761151286}
   m_Layer: 9
   m_Name: Chomper
   m_TagString: Untagged
@@ -205,6 +206,10 @@ MonoBehaviour:
   flipTime: 3
   attackRate: 0
   attackDistance: 0
+  AttackSfx: {fileID: 8300000, guid: b843fce942ecaf5408ed50f4d6129f2a, type: 3}
+  footstepSfx:
+  - {fileID: 8300000, guid: 2efac6b1f1b3cb84f8090b80da4bf152, type: 3}
+  - {fileID: 8300000, guid: e3e14f5214ce41a49956b747e78f4978, type: 3}
 --- !u!114 &1153558639300189812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +293,18 @@ MonoBehaviour:
           m_StringArgument: ChomperDeath
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4122995540761151286}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayAudio
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 516604db9dbf00141b71b702c4fd79c4, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.7
+          m_StringArgument: ChomperDeath
+          m_BoolArgument: 0
+        m_CallState: 2
   damageColor: {r: 1, g: 0, b: 0, a: 0}
   noControlTime: 0.1
   impactForce: {x: 0, y: 0}
@@ -306,6 +323,18 @@ MonoBehaviour:
   power: 1
   powerValue: 150
   duration: 1
+--- !u!114 &4122995540761151286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525020131798575521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f9ad71fc245c14ca08aeabd9649267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8931860890900859290
 GameObject:
   m_ObjectHideFlags: 0
